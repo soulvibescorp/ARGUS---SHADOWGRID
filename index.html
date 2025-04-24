@@ -1,75 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuristic Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galactic Command Interface</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="dashboard galaxy-bg">
+  <div class="login-container">
+    <h1 class="terminal-text">GALACTIC ACCESS GATEWAY</h1>
+    <form class="login-form">
+      <label for="commander-id">Commander ID</label>
+      <input type="text" id="commander-id" placeholder="e.g. CMD-4493" required />
 
-    <!-- Login Section -->
-    <div class="login-container">
-        <h1>Futuristic Command Center</h1>
-        <form id="login-form">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-        <p class="error-message" id="error-message"></p>
-    </div>
+      <label for="access-code">Access Code</label>
+      <input type="password" id="access-code" placeholder="••••••••" required />
 
-    <!-- Dashboard Section -->
-    <div class="dashboard-container hidden" id="dashboard">
-        <header>
-            <h2>Welcome to the Dashboard</h2>
-            <button id="logout-button">Logout</button>
-        </header>
+      <button type="submit">ENTER BRIDGE</button>
+    </form>
+  </div>
 
-        <!-- Navigation -->
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">User Profiles</a></li>
-                <li><a href="#">Analytics</a></li>
-                <li><a href="#">Settings</a></li>
-            </ul>
-        </nav>
+  <main class="command-interface hidden">
+    <header>
+      <h2>Starlink Operations Center</h2>
+      <nav>
+        <button class="nav-btn" onclick="showPanel('intel')">Behavioral Intel</button>
+        <button class="nav-btn" onclick="showPanel('personas')">User Profiles</button>
+        <button class="nav-btn" onclick="showPanel('clusters')">Tribe Mapping</button>
+        <button class="nav-btn" onclick="showPanel('forecast')">Forecast Engine</button>
+      </nav>
+    </header>
 
-        <!-- Main Dashboard Content -->
-        <section>
-            <div class="content-card">
-                <h3>System Health</h3>
-                <p>All systems are functional.</p>
-            </div>
-            <div class="content-card">
-                <h3>Behavioral Insights</h3>
-                <p>Current user analysis: Healthy engagement detected.</p>
-            </div>
-            <!-- Add more sections as necessary -->
-        </section>
-    </div>
+    <section id="intel" class="panel">
+      <h3>Real-Time Behavior Feed</h3>
+      <div class="intel-feed">
+        <div class="intel-entry">[12:32] CMD-004 pinged via crypto subreddit API...</div>
+        <div class="intel-entry">[12:34] Suspicious cluster: Lagos - TikTok: #freedomcoin...</div>
+        <div class="intel-entry">[12:36] Persona shift: User PX-28 from ENTJ to INTP...</div>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <section id="personas" class="panel hidden">
+      <h3>Individual Profiles</h3>
+      <div class="persona-card">
+        <h4>CMD-0021 | Aiko Wren</h4>
+        <ul>
+          <li><strong>Personality:</strong> INTJ, High Cognitive Function</li>
+          <li><strong>Emotional Signature:</strong> Cold Logic</li>
+          <li><strong>Belief System:</strong> Technocratic</li>
+          <li><strong>Risk Type:</strong> Low Impulse, Predictive Planner</li>
+        </ul>
+      </div>
+    </section>
 
+    <section id="clusters" class="panel hidden">
+      <h3>Tribe Dynamics</h3>
+      <div class="tribe-summary">
+        <h4>Cluster: Crypto Commandos</h4>
+        <p>Origin: Telegram, Twitter, YouTube (Andrew Tate, alt-finance)</p>
+        <p>Goal: Economic independence via DeFi</p>
+        <p>Key Members: 204</p>
+      </div>
+    </section>
 
+    <section id="forecast" class="panel hidden">
+      <h3>Intent Forecasting</h3>
+      <ul>
+        <li>[Potential Uprising in SubCluster-003]</li>
+        <li>[High Conversion Rate: Campaign X active in East Port]</li>
+        <li>[Anomalous Content Surge: Migration + Finance Fusion]</li>
+      </ul>
+    </section>
 
+    <footer>
+      <p>© 2045 GalacticOps AI. Port Integration via config/api.js</p>
+    </footer>
+  </main>
 
+  <script>
+    const loginForm = document.querySelector('.login-form');
+    const commandInterface = document.querySelector('.command-interface');
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GovTech Command Dashboard</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div id="root"></div>
-    <script src="src/index.js"></script>
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.querySelector('.login-container').classList.add('hidden');
+      commandInterface.classList.remove('hidden');
+    });
+
+    function showPanel(id) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+    }
+  </script>
 </body>
 </html>
