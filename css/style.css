@@ -1,0 +1,54 @@
+/* General styling for the futuristic theme */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #1c1c1c;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-size: 2rem;
+    color: #00c0ff;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.dashboard {
+    padding: 20px;
+}
+
+.modules-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.module-card {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.module-card:hover {
+    transform: scale(1.05);
+}
+
+.module-card h3 {
+    color: #00c0ff;
+    font-size: 1.2rem;
+}
