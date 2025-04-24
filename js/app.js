@@ -1,6 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { BehavioralModule, CommunityModule, IntentModule } from './components'; // Your custom modules
 import './styles/app.css';
+import React, { useState, useEffect } from 'react';
+import { fetchBehavioralData } from './services/mockApi';
+
+function App() {
+    const [behavioralData, setBehavioralData] = useState([]);
+
+    useEffect(() => {
+        const data = fetchBehavioralData();
+        setBehavioralData(data);
+    }, []);
+
+    return (
+        <div className="dashboard">
+            {/* Your existing code */}
+        </div>
+    );
+}
 
 function App() {
     // State to hold data for each module
