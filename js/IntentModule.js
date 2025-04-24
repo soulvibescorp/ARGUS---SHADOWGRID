@@ -2,7 +2,7 @@ import React from 'react';
 
 const IntentModule = ({ data }) => {
     return (
-        <div className="module-card">
+        <div className="module">
             <h2>Intent Detection</h2>
             <ul>
                 {data.map((intent, index) => (
