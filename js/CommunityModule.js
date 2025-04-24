@@ -2,7 +2,7 @@ import React from 'react';
 
 const CommunityModule = ({ data }) => {
     return (
-        <div className="module-card">
+        <div className="module">
             <h2>Community Insights</h2>
             <ul>
                 {data.map((community, index) => (
